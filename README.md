@@ -1,1 +1,1 @@
-# beacon-jwst
+# spurs-jwst
