@@ -1,22 +1,25 @@
+/* Base styles */
 body {
   font-family: 'Noto Sans', sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.125rem); /* scales between phone and desktop */
+  line-height: 1.6;
 }
 
-
+/* Footer icons scale with viewport */
 .footer .icon-link {
-    font-size: 25px;
-    color: #000;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: #000;
 }
 
+/* Links with flexible spacing */
 .link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
 .dnerf {
   font-variant: small-caps;
 }
-
 
 .teaser .hero-body {
   padding-top: 0;
@@ -27,87 +30,67 @@ body {
   font-family: 'Google Sans', sans-serif;
 }
 
-
-.publication-title {
+.column.has-text-centered img {
+  display: block;
+  margin: 0 auto;
+  max-width: 384px;   /* or any limit you like */
+  width: 100%;        /* let it shrink on small screens */
+  height: auto;       /* preserve aspect ratio */
 }
 
-.publication-banner {
-  max-height: parent;
-
-}
-
-.publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
-}
-
-.publication-header .hero-body {
-}
-
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-authors {
-    font-family: 'Google Sans', sans-serif;
+.publication-title,
+.publication-authors,
+.publication-venue,
+.publication-awards {
+  font-family: 'Google Sans', sans-serif;
 }
 
 .publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
+  color: #555;
+  width: fit-content;
+  font-weight: bold;
 }
 
 .publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
-}
-
-.publication-authors {
+  color: #ff3860;
+  width: fit-content;
+  font-weight: bolder;
 }
 
 .publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
+  color: hsl(204, 86%, 53%) !important;
 }
-
 .publication-authors a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .author-block {
   display: inline-block;
 }
 
-.publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
+/* Banner & media remain flexible */
+.publication-banner video {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 
 .publication-video {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-
-    overflow: hidden;
-    border-radius: 10px !important;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  overflow: hidden;
+  border-radius: 0.625rem !important;
 }
 
 .publication-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.publication-body img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .results-carousel {
@@ -115,9 +98,9 @@ body {
 }
 
 .results-carousel .item {
-  margin: 5px;
+  margin: 0.5rem;
   overflow: hidden;
-  padding: 20px;
+  padding: 1rem;
   font-size: 0;
 }
 
@@ -133,5 +116,41 @@ body {
   font-size: smaller;
 }
 
+/* Ensure all images scale */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
+/* --- Responsive Breakpoints --- */
 
+/* Tablets and below */
+@media (max-width: 768px) {
+  body {
+    font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  }
+
+  .teaser .hero-body {
+    padding-bottom: 2rem;
+  }
+
+  .results-carousel .item {
+    padding: 0.75rem;
+  }
+}
+
+/* Phones and small devices */
+@media (max-width: 480px) {
+  body {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+  }
+
+  .footer .icon-link {
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
+  }
+
+  .results-carousel .item {
+    padding: 0.5rem;
+  }
+}
