@@ -31,6 +31,21 @@ body {
 }
 
 
+li a {
+  color: #ff5c1d !important;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #ff8150 !important;
+  text-decoration: underline;
+}
+
+.bib-list li {
+    margin-bottom: 10px; /* Space between entries */
+    padding-left: 5px;   /* Clean look for the numbers */
+}
+
 .dnerf {
   font-variant: small-caps;
 }
