@@ -17,19 +17,27 @@ body {
 .link-block a {
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
-  background-color: #ff5c1d;
-  color: #ffffff;              /* text color */
+  background-color: #ff5c1d !important;
+  color: #ffffff !important;             /* text color */
   border: none;                /* optional: remove Bulma border */
   /*background-color: #a200cf;   /* button background */*/
 }
 
 /* Hover effect */
 .link-block a:hover {
-  background-color: #ff8150;
-  color: #fff;                 /* keep text white */
+  background-color: #ff8150  !important;
+  color: #fff !important;                 /* keep text white */
   /*background-color: #d950ff;   /* lighter blue on hover */*/
 }
 
+a {
+  color: #ff5c1d  !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff8150  !important;
+}
 
 li a {
   color: #ff5c1d !important;
