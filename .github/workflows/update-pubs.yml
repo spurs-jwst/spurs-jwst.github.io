@@ -1,0 +1,35 @@
+name: Update NASA ADS Publications
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # daily at 12:00 UTC
+  workflow_dispatch:      # manual run button
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run ADS sync script
+        env:
+          ADS_TOKEN: ${{ secrets.ADS_TOKEN }}
+        run: python scripts/update_ads.py
+
+      - name: Commit updated publications
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add publications/*.html
+          git commit -m "Auto-update ADS publications" || exit 0
+          git push

@@ -120,27 +120,43 @@
 
 
 
-<!--Construction -->
+<!-- Publications -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+
         <h2 class="title is-3">SPURS Team Publications</h2>
-        <ol class="bib-list" style="text-align: left;">
-          <li>Tang, M., Stark, D. P., Mason, C. A., Chen, Z., Katz, H., Gronke, M., et al., "SPURS: Evidence for Clumpy Neutral Envelopes and Ionized IGM Surrounding Little Red Dots in Abell 2744 from Ultra-Deep Rest-UV Spectroscopy", 2026, <i>arXiv e-prints</i>, <a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260403563T" target="_blank">ADS Link</a></li>
-        </ol>
+        <ol id="spurs-pubs" class="bib-list" style="text-align: left;"></ol>
 
         <br><br>
+
         <h2 class="title is-3">Community Publications</h2>
-        <ol class="bib-list" style="text-align: left;">
-          <li>Ji, X., Pezzulli, G., D'Eugenio, F., Maiolino, R., Carniani, S., Tacchella, S., et al., "Holes in the BH$^\star$? AGN signatures in the FUV spectrum of a black-hole dominated Little Red Dot at $z=7.04$", 2026, <i>arXiv e-prints</i>, <a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260403370J" target="_blank">ADS Link</a></li>
-        </ol>
+        <ol id="community-pubs" class="bib-list" style="text-align: left;"></ol>
 
       </div>
     </div>
   </div>
 </section>
-<!--End Construction -->
+
+<script>
+async function loadPublications(targetId, filePath) {
+  const container = document.getElementById(targetId);
+
+  try {
+    const response = await fetch(filePath);
+    const html = await response.text();
+    container.innerHTML = html;
+  } catch (error) {
+    container.innerHTML = "<li>Failed to load publications.</li>";
+    console.error(error);
+  }
+}
+
+loadPublications("spurs-pubs", "./publications/spurs_pub.html");
+loadPublications("community-pubs", "./publications/comm_pub.html");
+</script>
+<!--End Publications -->
 
 
 
