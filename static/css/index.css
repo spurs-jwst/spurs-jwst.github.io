@@ -17,7 +17,7 @@ body {
 .link-block a {
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
-  background-color: #ff5c1d !important;
+  background-color: #ff5c1d;
   color: #ffffff !important;             /* text color */
   border: none;                /* optional: remove Bulma border */
   /*background-color: #a200cf;   /* button background */*/
@@ -25,7 +25,7 @@ body {
 
 /* Hover effect */
 .link-block a:hover {
-  background-color: #ff8150  !important;
+  background-color: #ff8150;
   color: #fff !important;                 /* keep text white */
   /*background-color: #d950ff;   /* lighter blue on hover */*/
 }
