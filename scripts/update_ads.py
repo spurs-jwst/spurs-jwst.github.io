@@ -69,9 +69,9 @@ def format_authors(authors):
         return "Unknown"
 
     if len(authors) <= 6:
-        return ", ".join(authors)
+        return "; ".join(authors)
 
-    return ", ".join(authors[:6]) + ", et al."
+    return "; ".join(authors[:6]) + "; et al."
 
 
 def generate_html(docs):
