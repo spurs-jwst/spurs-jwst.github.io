@@ -54,7 +54,7 @@ def fetch_paper_details(bibcodes):
         "q": "bibcode:(" + " OR ".join(bibcodes) + ")",
         "fl": "title,author,year,pub,bibcode",
         "rows": 500,
-        "sort": "pubdate desc"
+        "sort": "date desc"
     }
 
     response = safe_get(url, headers=headers, params=params)
